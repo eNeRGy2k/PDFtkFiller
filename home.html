@@ -1,0 +1,39 @@
+<html>
+<head>
+  <style type="text/css">
+  body{
+    background-color:orange;
+    color:brown;
+  }
+  pre {
+    background-color:#DFDFDF;
+    color:#666;
+    padding:30px;
+    marging:10px;
+  }
+  </style>
+</head>
+<body>
+<h1>Instructions</h1>
+<p>In order to fill a pdf, send two PDF files to /filler, one with fieldname
+   fdffile and one with fieldname pdf-to-fill.  The fdffile will fill the pdf form and the resulting PDF
+   streamed back to the client.</p>
+<h2>CURL Example</h2>
+<pre>curl -F "fdffile=@file.xfdf" -F "pdf-to-fill=@my.pdf" http://localhost:@PORT/filler > filledpdf.pdf</pre>
+<h2>PHP Example</h2>
+<pre>
+&lt;?php
+  $ch = curl_init("http://localhost:@PORT/filler");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_POST, 1);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, [
+      'watermark' =>  new \CurlFile(__DIR__.'/fdffile.xfdf','text/plain','file.xfdf'),
+      'pdf-to-fill' =>  new \CurlFile(__DIR__.'/pdf-to-fill.pdf','application/pdf','my.pdf')
+  ]);
+  $result = curl_exec($ch);
+  file_put_contents("filledpdf.pdf", $result);
+</pre>
+<h1>Background Info</h1>
+<p>This system is using pdftk as the engine to support this function.</p>
+</body>
+</html>
