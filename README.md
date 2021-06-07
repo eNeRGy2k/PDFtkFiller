@@ -40,7 +40,7 @@ curl -F "fdffile=@file.xfdf" -F "pdf-to-fill=@pdf-to-fill.pdf" http://localhost:
 
 ## Example call from CURL in PHP
 ```php
-&lt;?php
+<?php
   $ch = curl_init("http://localhost:@PORT/filler");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_POST, 1);

@@ -27,7 +27,7 @@
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_POST, 1);
   curl_setopt($ch, CURLOPT_POSTFIELDS, [
-      'watermark' =>  new \CurlFile(__DIR__.'/fdffile.xfdf','text/plain','file.xfdf'),
+      'fdffile' =>  new \CurlFile(__DIR__.'/fdffile.xfdf','text/plain','file.xfdf'),
       'pdf-to-fill' =>  new \CurlFile(__DIR__.'/pdf-to-fill.pdf','application/pdf','my.pdf')
   ]);
   $result = curl_exec($ch);
