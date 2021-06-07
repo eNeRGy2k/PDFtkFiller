@@ -39,6 +39,17 @@ curl -F "fdffile=@file.xfdf" -F "pdf-to-fill=@pdf-to-fill.pdf" http://localhost:
 ```
 
 ## Example call from CURL in PHP
-
+```php
+&lt;?php
+  $ch = curl_init("http://localhost:@PORT/filler");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_POST, 1);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, [
+      'fdffile' =>  new \CurlFile(__DIR__.'/fdffile.xfdf','text/plain','file.xfdf'),
+      'pdf-to-fill' =>  new \CurlFile(__DIR__.'/pdf-to-fill.pdf','application/pdf','my.pdf')
+  ]);
+  $result = curl_exec($ch);
+  file_put_contents("filledpdf.pdf", $result);
+```  
 # Build and Deploy
 
