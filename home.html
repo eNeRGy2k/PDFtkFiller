@@ -15,9 +15,9 @@
 </head>
 <body>
 <h1>Instructions</h1>
-<p>In order to fill a pdf, send two PDF files to /filler, one with fieldname
-   fdffile and one with fieldname pdf-to-fill.  The fdffile will fill the pdf form and the resulting PDF
-   streamed back to the client.</p>
+<p>In order to fill a pdf, send two files to /filler, one with fieldname
+   fdffile and one with fieldname pdf-to-fill.  The fdffile is a fdf or xfdf file and it 
+   will fill the pdf form and the resulting PDF streamed back to the client.</p>
 <h2>CURL Example</h2>
 <pre>curl -F "fdffile=@file.xfdf" -F "pdf-to-fill=@my.pdf" http://localhost:@PORT/filler > filledpdf.pdf</pre>
 <h2>PHP Example</h2>

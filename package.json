@@ -2,7 +2,7 @@
   "name": "docker_node_pdftk_filler",
   "version": "1.0.0",
   "description": "pdftk based PDF filler served over nodejs",
-  "author": "Alejandro Torres <alejandro.tq@gmail.com>",
+  "author": "Alejandro Torres <energy2k@gmail.com>",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
